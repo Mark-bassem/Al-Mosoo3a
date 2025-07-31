@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حسابي</title>
+  <link rel="stylesheet" href="css/profile.css">
+  <link rel="icon" href="icons8-business-intelligence-64.png" type="image/png">
+</head>
+<body>
+  <header>
+    <h1>👤 حسابي</h1>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">🏠 الرئيسية</a></li>
+        <li><a href="quiz.html">🧪 الاختبار</a></li>
+        <li><a href="leaderboard.html">🏆 المتصدرون</a></li>
+        <li><a href="add.html">➕ أضف لغز</a></li>
+        <li><a href="profile.html">👤 حسابي</a></li>
+        <li><a href="login.html">🔐 دخول</a></li>
+        <li><a href="signup.html">📝 إنشاء حساب</a></li>
+        <li><a href="about.html">ℹ️ من نحن</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <section class="card">
+      <h2>📄 معلومات الحساب</h2>
+      <p id="profile-name">👤 الاسم: ...</p>
+      <p id="profile-email">📧 البريد الإلكتروني: ...</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>جميع الحقوق محفوظة &copy; 2025</p>
+  </footer>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+
+  <script>
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        const profileName = document.getElementById("profile-name");
+        const profileEmail = document.getElementById("profile-email");
+
+        // عرض الاسم لو موجود
+        if (profileName) profileName.innerText = `👤 الاسم: ${user.displayName || "غير محدد"}`;
+        if (profileEmail) profileEmail.innerText = `📧 البريد الإلكتروني: ${user.email}`;
+
+        // جلب الاسم من قاعدة البيانات كخطة بديلة
+        if (!user.displayName) {
+          firebase.database().ref("users/" + user.uid).once("value").then(snapshot => {
+            const data = snapshot.val();
+            if (data && data.username) {
+              profileName.innerText = `👤 الاسم: ${data.username}`;
+            }
+          });
+        }
+      } else {
+        window.location.href = "login.html";
+      }
+    });
+  </script>
+</body>
+</html>

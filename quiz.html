@@ -1,0 +1,43 @@
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الاختبار - موسوعة الذكاء العربي</title>
+  <link rel="stylesheet" href="css/quiz.css">
+  <link rel="icon" href="icons8-business-intelligence-64.png" type="image/png">
+</head>
+<body>
+  <header>
+    <h1>🧪 اختبار الذكاء</h1>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">🏠 الرئيسية</a></li>
+        <li><a href="quiz.html">🧪 الاختبار</a></li>
+        <li><a href="leaderboard.html">🏆 المتصدرون</a></li>
+        <li><a href="add.html">➕ أضف لغز</a></li>
+        <li><a href="profile.html">👤 حسابي</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="quiz-section">
+      <div id="question-box"></div>
+      <div id="choices"></div>
+      <div id="result-box"></div>
+      <button id="next-btn">التالي</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 موسوعة الذكاء العربي</p>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/quiz.js"></script> 
+</body>
+</html>

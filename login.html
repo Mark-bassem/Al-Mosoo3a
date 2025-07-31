@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول</title>
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="icon" href="icons8-business-intelligence-64.png" type="image/png">
+</head>
+<body class="login-page">
+  <main class="form-container">
+    <h2>🔐 تسجيل الدخول</h2>
+    <form id="login-form">
+      <input id="login-email" type="email" placeholder="البريد الإلكتروني">
+      <input id="login-password" type="password" placeholder="كلمة المرور">
+      <button id="loginBtn" type="submit">تسجيل الدخول</button>
+      <div id="loginStatus"></div>
+    </form>
+    <p>ليس لديك حساب؟ <a href="signup.html">إنشاء حساب</a></p>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/auth.js"></script>
+
+<script>
+ document.getElementById("login-form").addEventListener("submit", (e) => {
+    e.preventDefault(); // 👈 منع الإرسال الافتراضي للفورم
+
+    const email = document.getElementById("login-email").value.trim();
+    const password = document.getElementById("login-password").value.trim();
+
+    if (!email || !password) {
+      document.getElementById("loginStatus").innerText = "❌ برجاء إدخال البريد وكلمة المرور.";
+      return;
+    }
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(userCredential => {
+        document.getElementById("loginStatus").innerText = "✅ تم تسجيل الدخول!";
+        setTimeout(() => {
+          window.location.href = "profile.html"; // 👈 انقله لصفحة البروفايل بعد الدخول
+        }, 1000);
+      })
+      .catch(error => {
+        document.getElementById("loginStatus").innerText = "❌ " + error.message;
+      });
+  });
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      console.log(user.displayName); // 👈 لازم يطبع الاسم
+    }
+  });
+</script>
+</body>
+</html>
