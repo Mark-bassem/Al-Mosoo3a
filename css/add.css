@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c1c);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #fff;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.container {
+    max-width: 600px;
+    margin: 80px auto;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+}
+
+h2 {
+    text-align: center;
+    color: #00e5ff;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #ffffff15;
+    color: #fff;
+    transition: 0.3s;
+}
+
+form input:focus {
+    outline: none;
+    background-color: #ffffff25;
+}
+
+form input::placeholder {
+    color: #ccc;
+}
+
+form button {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.1rem;
+    background-color: #00bcd4;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0097a7;
+    transform: scale(1.03);
+}
+
+#status-msg {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+/* ✅ تحسين عرض الموبايل */
+@media (max-width: 600px) {
+    .container {
+        margin: 30px 15px;
+        padding: 25px 20px;
+        border-radius: 15px;
+        background: rgba(0, 0, 0, 0.7);
+        box-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
+    }
+
+    h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    form input[type="text"],
+    form input[type="number"] {
+        padding: 12px;
+        font-size: 1rem;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        background-color: #ffffff20;
+        color: #fff;
+    }
+
+    form button {
+        padding: 14px;
+        font-size: 1rem;
+    }
+
+    #status-msg {
+        font-size: 0.95rem;
+    }
+}
