@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c1c);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #fff;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+header {
+    padding: 20px;
+    background-color: rgba(0,0,0,0.6);
+    text-align: center;
+    border-bottom: 2px solid #00bcd4;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #00e5ff;
+}
+
+nav {
+    margin-top: 15px;
+}
+
+.navbar {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.navbar li a {
+    color: #f1f5f9;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.navbar li a:hover {
+    background-color: #334155;
+}
+
+
+main {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.4);
+    text-align: center;
+}
+
+.card h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #00e5ff;
+}
+
+ol#leaderboard-list {
+    list-style: decimal;
+    padding-right: 30px;
+    text-align: right;
+}
+
+ol#leaderboard-list li {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .card h2 {
+        font-size: 1.5rem;
+    }
+}

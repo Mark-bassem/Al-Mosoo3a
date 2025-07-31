@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c1c);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #fff;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+header {
+    padding: 20px;
+    background-color: rgba(0,0,0,0.6);
+    text-align: center;
+    border-bottom: 2px solid #00bcd4;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #00e5ff;
+}
+
+nav {
+    margin-top: 15px;
+}
+
+.navbar {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.navbar li a {
+    color: #f1f5f9;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.navbar li a:hover {
+    background-color: #334155;
+}
+
+
+main.hero {
+    padding: 80px 20px;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in;
+}
+
+main.hero h2 {
+    font-size: 2.2rem;
+    color: #00e5ff;
+    margin-bottom: 20px;
+}
+
+main.hero p {
+    font-size: 1.2rem;
+    line-height: 2;
+    max-width: 700px;
+    margin: 10px auto;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    background-color: rgba(0,0,0,0.5);
+    border-top: 1px solid #00bcd4;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    main.hero h2 {
+        font-size: 1.5rem;
+    }
+}
